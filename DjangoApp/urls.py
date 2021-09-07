@@ -21,6 +21,6 @@ from DjangoApi import views
 router = routers.DefaultRouter()
 router.register(r"books", views.BookView, "books")
 router.register(r"customers", views.CustomerView, "customers")
-router.register(r"cart", views.CartView, "cart")
+router.register(r"carts", views.CartView, "carts")
 
 urlpatterns = [path("admin/", admin.site.urls), path("api/", include(router.urls))]
