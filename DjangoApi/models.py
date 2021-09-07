@@ -8,8 +8,8 @@ class Book(models.Model):
     title = models.CharField(max_length=255, unique=True)
     author = models.CharField(max_length=255)
     year = models.IntegerField()
-    Price = models.IntegerField()
-    Edition = models.IntegerField()
+    price = models.IntegerField()
+    edition = models.IntegerField(null=True)
     isbn = models.IntegerField()
 
 
