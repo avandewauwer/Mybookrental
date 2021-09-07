@@ -1,8 +1,8 @@
 from rest_framework import permissions
-from DjangoApi.serializers import BookSerializer, CustomerSerializer
+from DjangoApi.serializers import BookSerializer, CustomerSerializer, CartSerializer
 from rest_framework import generics, viewsets
-from .serializers import BookSerializer, CustomerSerializer
-from .models import Book, Customer
+from .serializers import BookSerializer, CartSerializer, CustomerSerializer
+from .models import Book, Customer, Cart
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
@@ -15,4 +15,10 @@ class BookView(viewsets.ModelViewSet):
 class CustomerView(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+
+class CartView(viewsets.ModelViewSet):
+    serializer_class = CartSerializer
+    queryset = Cart.objects.all()
     permission_classes = [IsAuthenticatedOrReadOnly]

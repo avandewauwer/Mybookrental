@@ -12,6 +12,9 @@ class Book(models.Model):
     edition = models.IntegerField(null=True)
     isbn = models.IntegerField()
 
+    def __str__(self):
+        return self.title
+
 
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
@@ -19,3 +22,14 @@ class Customer(models.Model):
     phone = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Cart(models.Model):
+    customer = models.OneToOneField(Customer, null=True, on_delete=models.CASCADE)
+    books = models.ManyToManyField(Book)
+
+    def __str__(self):
+        return self.customer
