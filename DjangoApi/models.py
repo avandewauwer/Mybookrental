@@ -32,4 +32,4 @@ class Cart(models.Model):
     books = models.ManyToManyField(Book)
 
     def __str__(self):
-        return self.customer
+        return str(self.customer)
