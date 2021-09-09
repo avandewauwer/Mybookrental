@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import permissions
 from rest_framework import serializers
-from rest_framework.serializers import Serializer
+
+# from rest_framework.serializers import Serializer
 from DjangoApi.serializers import BookSerializer, CustomerSerializer, CartSerializer
 from rest_framework import generics, viewsets
 from .serializers import (
